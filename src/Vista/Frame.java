@@ -20,6 +20,7 @@ public class Frame extends javax.swing.JFrame {
      * Creates new form Frame
      */
     public Frame() {
+        setLocationRelativeTo(null);
         initComponents();
     }
 
@@ -253,13 +254,13 @@ public class Frame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String respuestaTemperaturaServicio = TemperaturaWebService.getWeather(jTextField1.getText(), jTextField2.getText());
-        String aux = "<Temperature>";
         if(!respuestaTemperaturaServicio.equals("Data Not Found")){
             temperaturaLabel.setBackground(Color.GREEN);
-            temperaturaLabel.setText(getGrade(respuestaTemperaturaServicio, aux));
+            temperaturaLabel.setText(getGrade(respuestaTemperaturaServicio, ETIQUETA_TEMPERATURA));
         }else{ temperaturaLabel.setText("Lugar no encontrado");}
 
     }//GEN-LAST:event_jButton1ActionPerformed
+    private static final String ETIQUETA_TEMPERATURA = "<Temperature>";
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
